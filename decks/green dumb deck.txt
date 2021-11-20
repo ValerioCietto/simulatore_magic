@@ -1,0 +1,59 @@
+1 Ghalta, Primal Hunger #!Commander
+1 Aggressive Mammoth
+1 Alpine Grizzly
+1 Ancient Brontodon
+1 Arborback Stomper
+1 Axebane Stag
+1 Brambleweft Behemoth
+1 Canopy Gorger
+1 Carnage Tyrant
+1 Carnage Wurm
+1 Colossal Dreadmaw
+1 Colossapede
+1 Cowl Prowler
+1 Duskdale Wurm
+1 Earthshaking Si
+1 Elvish Warrior
+1 Enormous Baloth
+42 Forest
+1 Garruk's Companion
+1 Garruk's Gorehorn
+1 Ghastbark Twins
+1 Giant Warthog
+1 Gigantosaurus
+1 Grizzled Outrider
+1 Hollowhenge Beast
+1 Kindercatch
+1 Leatherback Baloth
+1 Moldgraf Monstrosity
+1 Moss Kami
+1 Norwood Ranger
+1 Nyxborn Colossus
+1 Orazca Frillback
+1 Overgrowth
+1 Primordial Wurm
+1 Quilled Slagwurm
+1 Rampaging Hippo
+1 Rootbreaker Wurm
+1 Scaled Wurm
+1 Silverback Ape
+1 Silverback Shaman
+1 Silvos, Rogue Elemental
+1 Stampeding Rhino
+1 Stomper Cub
+1 Swordwise Centaur
+1 Tangle Mantis
+1 Terra Stomper
+1 Terrain Elemental
+1 Thundering Spineback
+1 Trained Jackal
+1 Tusked Colossodon
+1 Vastwood Gorger
+1 Vorstclaw
+1 Vulpine Goliath
+1 Whiptail Wurm
+1 Wildwood Patrol
+1 Willow Elf
+1 Woodland Druid
+1 Wrecking Beast
+1 Yavimaya Wurm

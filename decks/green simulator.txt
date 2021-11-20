@@ -1,0 +1,11 @@
+40 Forest
+5 1cost creature 
+5 2cost creature
+5 3cost creature
+5 4cost creature
+5 5cost creature
+5 6cost creature
+5 7cost creature
+5 8cost creature
+10 creature removal
+10 pump spell

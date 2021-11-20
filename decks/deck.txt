@@ -1,0 +1,22 @@
+13 Island
+13 Forest
+24 Dual
+28 Spell
+1 Basalth Monolith
+1 Stonework Packbeast
+1 Mindshrieker
+1 Pili-Pala
+1 Grand Architect
+1 Paradise Mantle
+1 Thrasios, Triton Hero
+1 Staff of Domination
+1 Freed from the Real
+1 Pemmin's Aura
+1 Horseshoe crab
+1 Simic Ragworm
+1 Karametra's Favor
+1 Utopia Vow
+1 Multani's Harmony
+1 Leech Bonder
+1 Sylvan Tutor
+1 Worldly tutor
