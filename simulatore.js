@@ -1,7 +1,14 @@
+deck_to_test = `
+40 Forest
+10 2_cost_add_1_mana
+50 Spells
+`
+
+
 simulator = function() {
    var deck = [];
    var deck_list = [];
-   deck_list = $("#deck").text().split("\n");
+   deck_list = deck_to_test.split("\n")//$("#deck").text().split("\n");
    console.log(deck_list);
    // parse deck
    var i = 0;
@@ -25,7 +32,7 @@ simulator = function() {
    var drawn_cards = draw(deck,8);
    console.log(drawn_cards);
    console.log(win_condition(drawn_cards));
-
+   let forest_turn_1 =0;
    var winning_hands = 0;
    var combo_hand = 0;
    var games_to_play = 100000;
@@ -43,39 +50,32 @@ simulator = function() {
    for(i=0; i<games_to_play;i++){
        var game_deck = [...starting_deck];
        game_deck = shuffle(game_deck);
-       drawn_cards = draw(game_deck,8);
+       drawn_cards = draw(game_deck,7);
        
        if(combo_hands(drawn_cards)){
            combo_hand++;
        }
-       else{
-           game_deck = [...starting_deck];
-           game_deck = shuffle(game_deck);
-           drawn_cards = draw(game_deck,7);
-           if(combo_hands(drawn_cards)){
-               combo_hand++;
-           }
-           else{
-               game_deck = [...starting_deck];
-               game_deck = shuffle(game_deck);
-               drawn_cards = draw(game_deck,6);
-               if(combo_hands(drawn_cards)){
-                   combo_hand++;
-               
-               }
+    //    if(!drawn_cards.includes("Forest")){
+    //         game_deck = [...starting_deck];
+    //         game_deck = shuffle(game_deck);
+    //         drawn_cards = draw(game_deck,6);
+    //    }
 
-           }
-       }
+
        if(win_condition(drawn_cards)){
            winning_hands++;
        }
        
        //Play deck
        
+       play_deck(drawn_cards)
+       
        if(i%100000 == 0){
            console.log(i + " "+game_deck.length);
        }
    }
+   console.log("foreste primo turno:"+ forest_turn_1)
+   $("cmc1").text(forest_turn_1)
    console.log("winning %: " + winning_hands / games_to_play);
    console.log("combo %: " + combo_hand / games_to_play);
 
@@ -89,9 +89,16 @@ simulator = function() {
        return cards;
    }
 
-   var number_of_lands = 0;
+   
    function play_deck(drawn_cards){
-       
+       let number_of_lands = 0
+       let hand = drawn_cards
+       if(hand.includes('Forest')){
+          hand.splice(hand.indexOf('Forest'),1) //toglie una foresta
+          forest_turn_1 += 1
+       }
+       //object where to save data about how the play has been played
+  
    }
    function combo_hands(cards){
        //colorless mana

@@ -1,0 +1,32 @@
+{
+  "name": "simulatore_magic",
+  "version": "1.0.0",
+  "description": "Simulate how a deck would play",
+  "main": "simulatore.ja",
+  "scripts": {
+    "test": "start",
+    "start": "chrome simulatore.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ValerioCietto/simulatore_magic.git"
+  },
+  "keywords": [
+    "simulator",
+    "magic-the-gathering",
+    "deck",
+    "card"
+  ],
+  "author": "Valerio Cietto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ValerioCietto/simulatore_magic/issues"
+  },
+  "homepage": "https://github.com/ValerioCietto/simulatore_magic#readme",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "mtg-json": "^1.0.1",
+    "scryfall": "^0.9.7",
+    "webpack": "^5.64.4"
+  }
+}
