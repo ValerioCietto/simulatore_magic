@@ -3,30 +3,36 @@ deck_to_test = `
 10 2_cost_add_1_mana
 50 Spells
 `
-
+import { loadDeck } from './src/loadDeck.js'
 
 simulator = function() {
+   console.log('v1.0')
    var deck = [];
    var deck_list = [];
    deck_list = deck_to_test.split("\n")//$("#deck").text().split("\n");
    console.log(deck_list);
+
+   
    // parse deck
-   var i = 0;
-   for(i=0; i < deck_list.length; i++){
-       var j = 0;
-       if(deck_list[i].length > 2){
-           number_of_copies = deck_list[i].split(" ")[0];
-           name_of_card = deck_list[i].substring(number_of_copies.length+1,
-           deck_list[i].length);
-           console.log("copies: "+number_of_copies + 
-           ", name: "+name_of_card); 
-           for(j=0; j < number_of_copies; j++){
-               deck.push(name_of_card);
-           }
-       }
+//    var i = 0;
+//    for(i=0; i < deck_list.length; i++){
+//        var j = 0;
+//        if(deck_list[i].length > 2){
+//            number_of_copies = deck_list[i].split(" ")[0];
+//            name_of_card = deck_list[i].substring(number_of_copies.length+1,
+//            deck_list[i].length);
+//            console.log("copies: "+number_of_copies + 
+//            ", name: "+name_of_card); 
+//            for(j=0; j < number_of_copies; j++){
+//                deck.push(name_of_card);
+//            }
+//        }
        
-   }
-   var starting_deck = deck;
+//    }
+//    var starting_deck = deck;
+
+   var starting_deck = loadDeck(deck_list)
+   deck = [...starting_deck]
    deck = shuffle(deck);
    console.log(deck);
    var drawn_cards = draw(deck,8);
@@ -36,16 +42,7 @@ simulator = function() {
    var winning_hands = 0;
    var combo_hand = 0;
    var games_to_play = 100000;
-   //16462 t0 
-   //33412 t1 220837
-   //57132 t2 
-   //86280 t3
-   //122957 t4
-   //162593 t5 592780
-   //t6 728586
-   //t7 780000
-   //t8 824000
-   //   859
+
    var mana_available = [];
    for(i=0; i<games_to_play;i++){
        var game_deck = [...starting_deck];
@@ -55,6 +52,7 @@ simulator = function() {
        if(combo_hands(drawn_cards)){
            combo_hand++;
        }
+    // mulligan example
     //    if(!drawn_cards.includes("Forest")){
     //         game_deck = [...starting_deck];
     //         game_deck = shuffle(game_deck);
