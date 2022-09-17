@@ -27,6 +27,3 @@ function loadDeck(deck_to_test){
     }
     return deck;
 }
-
-
-module.exports = loadDeck
