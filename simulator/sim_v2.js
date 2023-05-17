@@ -15,9 +15,6 @@ const deck = [
     {name: 'Forest'},
     {name: 'Forest'},
     {name: 'Forest'},
-    {name: 'Forest'},
-    {name: 'Forest'},
-    {name: 'Forest'},
   ];
 const { cards } = require('./cards.js');
 // Custom Card Objects
