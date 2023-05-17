@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>❤Calcolatore di compatibilità amorosa❤</title>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script>
+String.prototype.hashCode = function() {
+  var hash = 0,
+    i, chr;
+  if (this.length === 0) return hash;
+  for (i = 0; i < this.length; i++) {
+    chr = this.charCodeAt(i);
+    hash = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+}
+function calculateCompatibility(){
+    const first_name = document.getElementById("first_name").value.toUpperCase().trim();
+    const second_name = document.getElementById("second_name").value.toUpperCase().trim();
+    const partial_sum = first_name > second_name ? first_name + second_name : second_name + first_name;
+    const sum = ((Math.abs((partial_sum).hashCode()) + 14 ) % 100) + 1;
+    document.getElementById("result").innerHTML = sum
+}
+</script>
+<style>
+.center {
+  margin: auto;
+  width: 80%;
+  border: 3px solid red;
+  border-radius: 10px;
+  padding: 10px;
+}
+body {
+ background-color:pink;
+}
+h1 {
+ color:red
+}
+h2 {
+    color:red
+}
+input {
+    font-size: 1.5em;
+}
+</style>
+</head>
+<body >
+  <div id='app' class="center" ng-app ng-init="first=Mario;second=Peach">
+   <h1 style="text-align: center;">
+        ❤Calcolatore di compatibilità amorosa❤
+   </h1>
+  <h2 style="text-align: center;">
+    Primo nome:
+  </h2>
+  <div style="text-align: center;">
+  <input  id="first_name" onkeyup="calculateCompatibility()" type="text" ng-model="first">
+</div>
+  <h2 style="text-align: center;">
+    Secondo nome: 
+  </h2>
+  <div  style="text-align: center;">
+ <input  id="second_name" onkeyup="calculateCompatibility()" type="text" min="0" ng-model="second">
+</div>
+ <h1 style="text-align: center;">
+    Compatibilità:<span id="result"></span> %
+  </h1>
+</body>
+</html>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
