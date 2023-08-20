@@ -25,8 +25,11 @@
   "homepage": "https://github.com/ValerioCietto/simulatore_magic#readme",
   "dependencies": {
     "angular": "^1.8.2",
+    "axios": "^1.4.0",
+    "express": "^4.18.2",
     "mtg-json": "^1.0.1",
+    "multer": "^1.4.5-lts.1",
     "scryfall": "^0.9.7",
-    "webpack": "^5.64.4"
+    "webpack": "^5.85.1"
   }
 }
