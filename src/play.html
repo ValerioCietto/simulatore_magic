@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<head>
+  <title>Upload Deck</title>
+</head>
+<body style ="background-color:black; color:lightgrey">
+    <div ng-app="myApp" ng-init="firstName='John'">
+    
+        <script>
+
+    var deckString =  `1 Undergrowth Recon
+1 Nissa, Resurgent Animist
+3 Deeproot Wayfinder
+1 Ozolith, the Shattered Spire
+1 Sharp-Eyed Rookie
+1 Guildpact Greenwalker`
+
+    var cards = deckString.split("\n");
+
+    console.log(deckString);
+    console.log(cards);
+    var deck = [];
+
+    for (i=0; i < cards.length; i++) {
+        var count = cards[i].split(" ")[0];
+        // console.log(count);
+        var name = cards[i].substring(count.length+1, cards[i].length);
+        // console.log(name);
+
+        for (j=0; j < count; j++) {
+            deck.push(name);
+        }
+    }
+
+    // shuffle
+    function shuffle(deck) {
+        for (let i = deck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+    }
+
+    shuffle(deck);
+    console.log(deck)
+
+    // make a request to ../cards/cardsAlchemy.json to fetch all json cards
+    cardsDatabase = [];
+
+
+
+    var app = angular.module("myApp", []);
+    var deckWithCardData = [];
+    fetch("../cards/cardsAlchemy.json")
+            .then(response => response.json())
+            .then(data => {
+                cardsDatabase = data;
+                console.log(cardsDatabase);
+
+                // make a new object called deckWithCardData, match card name with card data from cardsDatabase
+
+                deckWithCardData = [];
+                for (i=0; i < deck.length; i++) {
+                    for (j=0; j < cardsDatabase.length; j++) {
+                        if (deck[i] == cardsDatabase[j].name) {
+                            deckWithCardData.push(cardsDatabase[j]);
+                        }
+                    }
+                }
+                console.log(deckWithCardData);
+            });
+
+    app.controller("myCtrl", function($scope) {
+
+
+        // controller on init
+
+        console.log('hello from controller')
+        $scope.names = ["Emil", "Tobias", "Linus"];
+        $scope.array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        $scope.firstName = "John";
+
+    });
+    
+
+    </script>
+        <p>The name is <span ng-bind="firstName"></span></p>
+        <p>The name is {{firstName}}</span></p>  
+        <p>The name is {{names[0]}}</span></p> 
+        <h1>Play</h1>
+        <div>cards</div>
+
+        <img src="https://cards.scryfall.io/normal/front/2/6/26f9ebbe-3791-4d19-88d2-d5de95faff48.jpg?158147928" width="250" alt="test"></img>
+        <ul>
+        <li ng-repeat="x in names">{{x}}</li>
+        </ul>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</html>
+<body style ="background-color:black; color:lightgrey">
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    <ul>
+        <li ng-repeat="card in cards">{{card}}</li>
+    </ul>
+    deck
+   <!-- <ul>
+        <li ng-repeat="name in deck track by $index">{{name}}</li>
+    </ul>-->
+    deck with data
+   <!-- <div>
+        <span ng-repeat="cardData in deckWithCardData track by $index">{{cardData.name}}, </span>
+    </div>-->
+    <!--
+    <span ng-repeat="cardData in deckWithCardData track by $index">
+        <img src="{{cardData.image_uris.normal}}" width="250" alt="test"></img>
+    </span>-->
+    <span>{{loading}}</span>
+
+    <span>Game!</span>
+    <div>Hand:<span ng-repeat="cardData in playerHand track by $index">{{cardData.name}}, </span></div>
+    <div>Lands:<span ng-repeat="cardData in playerLands track by $index">{{cardData.name}}, </span></div>
+    <div>Creatures:<span ng-repeat="cardData in playerCreatures track by $index">{{cardData.name}}, </span></div>
+    <div>mana: {{playerMana}}</div>
+    ------------------------------------------
+    
+
+
+</div>
+<script src="play2.controller.js"></script>
+</body>

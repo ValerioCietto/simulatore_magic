@@ -1,2 +1,8 @@
 node_modules/
 uploads/
+AlchemyCreatureStats.csv
+cards.json
+cardsAlchemy.json
+cardsTimeless.json
+cardsTimelessFormatted.json
+creature.json

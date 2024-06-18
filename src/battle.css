@@ -1,0 +1,79 @@
+/* This CSS ensures the entire page is non-scrollable and rectangles are styled and positioned as required */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rectangle {
+    flex: 1; /* Each rectangle takes half of the available space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+}
+
+.top-rectangle {
+    background-color: #003f82; /* Blue */
+}
+
+.bottom-rectangle {
+    background-color: #00761c; /* Green */
+}
+
+.opponent-cemetery {
+    position: absolute;
+    top: 5%; /* 5% from the top of the parent rectangle */
+    right: 5%; /* 5% from the right side of the parent rectangle */
+    background-color: #6c757d; /* Dim gray for contrast */
+    width: 250px; /* Set width to 250 pixels */
+    height: 300px; /* Set height to 500 pixels */
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px; /* Smaller font size than the parent rectangle */
+}
+
+.player-cemetery {
+    position: absolute;
+    bottom: 5%; /* 5% from the top of the parent rectangle */
+    left: 5%; /* 5% from the right side of the parent rectangle */
+    background-color: #6c757d; /* Dim gray for contrast */
+    width: 250px; /* Set width to 250 pixels */
+    height: 300px; /* Set height to 500 pixels */
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px; /* Smaller font size than the parent rectangle */
+}
+
+.player-hand {
+    position: absolute;
+    bottom: -1%;
+    right: 25%;
+    background-color: #6c757d;
+    width: 940px;
+    height: 140px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.bot-control-bar {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    background-color: #6c757d;
+    width: 50px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
