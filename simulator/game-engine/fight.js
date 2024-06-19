@@ -1,3 +1,6 @@
+// run with
+// node simulator/game-engine/fight.js
+
 /**
  * Makes two creatures fight each other, where each deals damage equal to its power to the other.
  * @param {Object} creature1 - The first creature, with properties for power, toughness, and isDestroyed.
@@ -24,8 +27,8 @@ function fight(creature1, creature2) {
 // Example usage:
 const creature1 = {
   name: "Giant Spider",
-  power: 4,
-  toughness: 4,
+  power: 3,
+  toughness: 1,
   isDestroyed: false,
 };
 

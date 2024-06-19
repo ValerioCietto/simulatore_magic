@@ -13,6 +13,9 @@ class Deck {
     cardLines.forEach((line) => {
       let count = line.split(" ")[0];
       let name = line.substring(count.length + 1, line.length);
+      // remove from name \r if there is
+      name = name.replace(/\r/g, "");
+
       // do something with count and name
       Array.from({ length: Number(count) }, () => name).forEach((card) =>
         this.cards.push(card)

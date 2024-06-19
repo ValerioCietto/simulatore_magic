@@ -19,11 +19,10 @@ class Game {
     this.deck.importCardData();
     this.turnsCounter = 0;
     this.totalDamage = 0;
-    this.oozeCount = 5;
   }
 
   drawCard() {
-    this.hand.addCard(this.deck.draw(1));
+    this.hand.addCard(this.deck.draw(1)[0]);
   }
 
   drawStartingHand() {
@@ -127,8 +126,8 @@ class Game {
         this.battlefield.cards.push({
           name: "Ooze",
           type_line: "Creature - Ooze",
-          power: this.oozeCount,
-          thoughness: this.oozeCount,
+          power: 1,
+          thoughness: 1,
           token: true,
           summon_sickness: true,
         });
