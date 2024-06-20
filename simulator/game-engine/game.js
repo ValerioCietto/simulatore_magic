@@ -70,7 +70,12 @@ class Game {
 
   playLand() {
     const landIndex = this.hand.cards.findIndex(
-      (card) => card.name === "Forest"
+      (card) =>
+        card.name === "Forest" ||
+        card.name === "Plains" ||
+        card.name === "Island" ||
+        card.name === "Mountain" ||
+        card.name === "Swamp"
     );
     if (landIndex !== -1) {
       this.battlefield.cards.push(this.hand.cards[landIndex]);
@@ -82,7 +87,19 @@ class Game {
     let manaAvailable = 0;
     // foreach card in battlefield
     this.battlefield.cards.forEach((card) => {
+      if (card.name === "Island") {
+        manaAvailable += 1;
+      }
+      if (card.name === "Swamp") {
+        manaAvailable += 1;
+      }
+      if (card.name === "Mountain") {
+        manaAvailable += 1;
+      }
       if (card.name === "Forest") {
+        manaAvailable += 1;
+      }
+      if (card.name === "Plains") {
         manaAvailable += 1;
       }
       if (card.name === "Woodland Mystic") {
@@ -112,6 +129,9 @@ class Game {
     // );
 
     if (cardIndex !== -1) {
+      if (this.hand.cards[cardIndex].name === "Cloudkin Seer") {
+        this.drawCard();
+      }
       if (this.hand.cards[cardIndex].name === "Nurturing Bristleback") {
         this.battlefield.cards.push({
           name: "Dinosaur",
