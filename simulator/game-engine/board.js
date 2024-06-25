@@ -5,7 +5,7 @@ const Deck = require("./deck.js");
 const Hand = require("./hand.js");
 const Battlefield = require("./battlefield.js");
 
-class Game {
+class Board {
   constructor(decklist) {
     const deck = new Deck();
     const hand = new Hand();
@@ -184,4 +184,4 @@ class Game {
   }
 }
 
-module.exports = Game;
+module.exports = Board;
