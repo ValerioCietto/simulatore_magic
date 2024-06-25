@@ -16,7 +16,14 @@ class Hand {
   }
 
   removeCard(card) {
-    var index = this.cards.indexOf(card);
+    const index = this.cards.indexOf(card);
+    if (index > -1) {
+      this.cards.splice(index, 1);
+    }
+  }
+
+  removeCardByName(name) {
+    const index = this.cards.findIndex((card) => card.name === name);
     if (index > -1) {
       this.cards.splice(index, 1);
     }

@@ -18,31 +18,50 @@ function printGame(game) {
     })
     .join(", ");
   console.log(cardsNamesInHand);
-  console.log(game.totalDamage);
+  console.log("Damage: ", game.totalDamage);
 }
 // read file content of decks/Arena Starter Decks/Large and In Charge.txt
-const deckString = require("fs").readFileSync(
+const deckStringBlack = require("fs").readFileSync(
+  "decks/Arena Starter Decks/Cold-Blooded Killers.txt",
+  "utf8"
+);
+const deckStringBlue = require("fs").readFileSync(
   "decks/Arena Starter Decks/Aerial Domination.txt",
   "utf8"
 );
-const game = new Game(deckString);
-game.start();
+const deckStringGreen = require("fs").readFileSync(
+  "decks/Arena Starter Decks/Large and In Charge.txt",
+  "utf8"
+);
 
-printGame(game);
-game.playTurn();
-printGame(game);
-game.playTurn();
-printGame(game);
-game.playTurn();
-printGame(game);
-game.playTurn();
-printGame(game);
-game.playTurn();
-printGame(game);
-game.playTurn();
-printGame(game);
-game.playTurn();
-printGame(game);
-game.playTurn();
-printGame(game);
-game.playTurn();
+const maxTurns = 15;
+const turnToWinArray = [
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+  [0],
+];
+const numberOfGames = 1000;
+for (let index = 0; index < numberOfGames; index++) {
+  const game = new Game(deckStringBlack);
+  game.start();
+  while (game.totalDamage < 21 && game.turnsCounter < maxTurns) {
+    game.playTurn();
+  }
+  console.log("win on turn " + game.turnsCounter);
+  // sum as integer in turnToWinArray
+  turnToWinArray[game.turnsCounter - 1][0] += 1;
+}
+
+console.log(turnToWinArray);

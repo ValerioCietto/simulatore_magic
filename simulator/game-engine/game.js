@@ -27,6 +27,8 @@ class Game {
 
   drawStartingHand() {
     this.hand.addCards(this.deck.draw(7));
+    // order hand by mana cost
+    this.hand.cards.sort((a, b) => a.cmc - b.cmc);
   }
 
   start() {
@@ -59,8 +61,20 @@ class Game {
       let totalPower = 0;
       this.battlefield.cards.forEach((card) => {
         if (card.type_line.includes("Creature")) {
-          if (!card.summon_sickness) {
+          if (!card.summon_sickness && card.power !== "*") {
             totalPower += Number(card.power);
+          }
+          if (!card.summon_sickness && card.power === "*") {
+            if (
+              card.oracle_text.includes(
+                "power and toughness are each equal to the number of Swamps you control."
+              )
+            ) {
+              const power = this.battlefield.cards.filter((card) =>
+                card.type_line.includes("Swamp")
+              ).length;
+              totalPower += power;
+            }
           }
         }
       });
@@ -79,7 +93,10 @@ class Game {
     );
     if (landIndex !== -1) {
       this.battlefield.cards.push(this.hand.cards[landIndex]);
-      this.hand.removeCard(landIndex);
+      // get name of card
+      const cardName = this.hand.cards[landIndex].name;
+      // remove card from hand by name
+      this.hand.removeCardByName(cardName);
     }
   }
 
