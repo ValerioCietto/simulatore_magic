@@ -1,6 +1,6 @@
 // run with
 // node simulator/game-engine/testGame.js
-const Game = require("./game");
+const Game = require("./board");
 function printNestedObject(obj) {
   console.log(JSON.stringify(obj, null, 2));
 }
