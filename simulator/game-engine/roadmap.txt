@@ -1,0 +1,10 @@
+game is a Board state object that contains all data of a single player.
+Needing a bigger entity to hold board status of player and opponent
+
+Game
+  player
+  board
+    deck
+    hand
+    playRules
+  
